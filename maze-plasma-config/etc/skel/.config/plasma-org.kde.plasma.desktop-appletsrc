@@ -36,7 +36,7 @@ immutability=1
 plugin=org.kde.plasma.icontasks
 
 [Containments][29][Applets][6][Configuration][General]
-launchers=applications:maze-calamares.desktop,applications:maze-control-center.desktop,applications:org.kde.konsole.desktop,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:brave-origin.desktop,applications:org.torproject.torbrowser-launcher.desktop,applications:proton.vpn.app.gtk.desktop,applications:maze-ai.desktop,applications:entropy-shield.desktop,applications:haze.desktop,applications:hazedrop.desktop,applications:maze-guard.desktop,applications:qlam.desktop,applications:org.kde.kdeconnect.app.desktop
+launchers=applications:maze-calamares.desktop,applications:maze-control-center.desktop,applications:org.kde.konsole.desktop,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:brave-origin.desktop,applications:org.torproject.torbrowser-launcher.desktop,applications:proton.vpn.app.gtk.desktop,applications:maze-ai.desktop,applications:maze-connect.desktop,applications:entropy-shield.desktop,applications:haze.desktop,applications:hazedrop.desktop,applications:maze-guard.desktop,applications:qlam.desktop,applications:org.kde.kdeconnect.app.desktop
 
 [Containments][29][General]
 AppletOrder=6

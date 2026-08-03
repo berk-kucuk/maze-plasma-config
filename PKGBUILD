@@ -11,8 +11,8 @@
 # not live config, so they are not marked backup.
 
 pkgname=maze-plasma-config
-pkgver=1.0.0
-pkgrel=3
+pkgver=1.1.0
+pkgrel=1
 pkgdesc="Maze Linux KDE Plasma desktop preset (panel layout, widgets, defaults, .zshrc) seeded via /etc/skel"
 arch=('any')
 url="https://mazelinux.berkkucukk.com.tr"
