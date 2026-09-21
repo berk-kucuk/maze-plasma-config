@@ -1,0 +1,47 @@
+# Maze Linux — KDE Wallet defaults seeded into every new user's ~/.config.
+#
+# ── Why apiEnabled=false ──────────────────────────────────────────────────────
+# Maze has TWO packages that provide the org.freedesktop.secrets D-Bus service
+# (the Secret Service API every libsecret client uses — Claude Code, VS Code,
+# Electron/Chromium apps):
+#
+#   * gnome-keyring — pulled in by proton-vpn-gtk-app -> python-proton-keyring-linux,
+#     and listed explicitly in packages.x86_64 so it cannot silently disappear.
+#     It is D-Bus activatable and Arch's stock /etc/pam.d/sddm already unlocks it
+#     with the login password (-auth/-session optional pam_gnome_keyring.so).
+#   * kwallet — since 6.29 it ships ksecretd, which CLAIMS org.freedesktop.secrets
+#     at runtime as soon as it starts.
+#
+# Whoever grabs the name first wins, so the Secret Service silently moved from
+# gnome-keyring to KWallet the moment ksecretd happened to start (the XDG portal
+# activates it). Logins already stored in gnome-keyring were then invisible —
+# apps asked the user to sign in again — and KWallet popped its own password
+# prompt because nothing had unlocked it. That is the "Your sign-in won't be
+# saved on this device" regression.
+#
+# Setting apiEnabled=false makes ksecretd keep only its own org.kde.* names and
+# leave org.freedesktop.secrets to gnome-keyring, which was the de facto owner
+# before kwallet 6.29. One owner, no race, existing secrets stay reachable.
+# Verified in an isolated D-Bus session: with apiEnabled=true ksecretd takes the
+# name; with false it does not.
+#
+# ── Why First Use=false ───────────────────────────────────────────────────────
+# KWallet is still used directly by KDE applications. Without this key KWallet
+# greets each new user with its setup wizard and lets them pick a wallet password
+# of their own; any password other than the login password permanently breaks
+# pam_kwallet's automatic unlock, so the wallet prompts by hand forever after.
+# With the wizard suppressed, pam_kwallet_init creates "kdewallet" using the
+# login password and the wallet is already open when the desktop starts. On the
+# live medium the 'maze' user has no password, so it is created empty and opens
+# silently there too.
+[Wallet]
+Enabled=true
+First Use=false
+Use One Wallet=true
+Default Wallet=kdewallet
+Prompt on Open=false
+Close When Idle=false
+Leave Open=true
+
+[org.freedesktop.secrets]
+apiEnabled=false
