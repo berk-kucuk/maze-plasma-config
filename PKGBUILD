@@ -19,7 +19,7 @@
 
 pkgname=maze-plasma-config
 pkgver=1.2.1
-pkgrel=3
+pkgrel=5
 pkgdesc="Maze Linux KDE Plasma desktop preset (panel layout, widgets, defaults, .zshrc) seeded via /etc/skel"
 arch=('any')
 url="https://mazelinux.berkkucukk.com.tr"
@@ -28,6 +28,31 @@ depends=('inter-font')
 optdepends=(
   'plasma-desktop: the KDE Plasma session these presets configure'
   'zsh: the shell the shipped /etc/skel/.zshrc targets'
+)
+install="${pkgname}.install"
+backup=(
+  # ── Adopted from the ISO's airootfs (2026-09) ──────────────────────────────
+  # These used to exist only in the live image, so installed machines carried
+  # them UNOWNED and no update ever reached them. They are in backup=() so the
+  # takeover is silent: pacman does not treat an existing unowned file that the
+  # package lists as a backup as a conflict — an identical copy is simply
+  # adopted, a locally edited one is kept and the packaged one lands as .pacnew.
+  # Without this, `pacman -Syu` on every installed Maze would stop with
+  # "exists in filesystem" until the user ran --overwrite by hand.
+  'usr/share/plasma/look-and-feel/com.mazelinux.oled/contents/defaults'
+  'usr/share/plasma/look-and-feel/com.mazelinux.oled/contents/layouts/org.kde.plasma.desktop-layout.js'
+  'usr/share/plasma/look-and-feel/com.mazelinux.oled/contents/splash/Splash.qml'
+  'usr/share/plasma/look-and-feel/com.mazelinux.oled/contents/splash/logo.png'
+  'usr/share/plasma/look-and-feel/com.mazelinux.oled/metadata.json'
+  'usr/share/plasma/look-and-feel/com.mazelinux.oled.light/contents/defaults'
+  'usr/share/plasma/look-and-feel/com.mazelinux.oled.light/contents/layouts/org.kde.plasma.desktop-layout.js'
+  'usr/share/plasma/look-and-feel/com.mazelinux.oled.light/contents/splash/Splash.qml'
+  'usr/share/plasma/look-and-feel/com.mazelinux.oled.light/contents/splash/logo.png'
+  'usr/share/plasma/look-and-feel/com.mazelinux.oled.light/metadata.json'
+  'usr/share/color-schemes/MazeDark.colors'
+  'usr/share/color-schemes/MazeLight.colors'
+  # Written by maze-installer on older installs, where it is unowned.
+  'etc/xdg/mimeapps.list'
 )
 source=()
 

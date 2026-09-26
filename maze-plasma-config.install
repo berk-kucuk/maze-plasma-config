@@ -1,0 +1,27 @@
+# maze-plasma-config.install
+
+# /etc/xdg/mimeapps.list used to be written by maze-installer (<= 2.0.0-34) at
+# install time and belonged to no package. This package now ships it, in
+# backup=(), so pacman adopts it without a file conflict — but because the
+# installer's copy is worded differently (same Firefox defaults, other line
+# order, no Thunderbird lines), pacman keeps it and drops the packaged one next
+# to it as .pacnew, and maze-doctor then reports an unmerged .pacnew on every
+# machine installed that way.
+#
+# Replace it ONLY when it is byte-for-byte the file the installer generated
+# (sha256 below). Anything else — an admin's own edits — is left exactly as
+# pacman left it, .pacnew and all.
+_INSTALLER_MIMEAPPS_SHA256=01313838f48b31ca4b5b578ecef4e0308837fcf9e50dfb9d5dac972fd52e90c9
+
+_adopt_installer_mimeapps() {
+    _f=/etc/xdg/mimeapps.list
+    [ -f "$_f.pacnew" ] && [ -f "$_f" ] || return 0
+    command -v sha256sum >/dev/null 2>&1 || return 0
+    [ "$(sha256sum "$_f" | cut -d' ' -f1)" = "$_INSTALLER_MIMEAPPS_SHA256" ] || return 0
+    mv -f "$_f.pacnew" "$_f" \
+        && echo ">> maze-plasma-config: /etc/xdg/mimeapps.list replaced by the packaged version (same Firefox defaults)."
+}
+
+post_upgrade() {
+    _adopt_installer_mimeapps
+}
