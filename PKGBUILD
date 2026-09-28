@@ -19,7 +19,7 @@
 
 pkgname=maze-plasma-config
 pkgver=1.2.1
-pkgrel=5
+pkgrel=7
 pkgdesc="Maze Linux KDE Plasma desktop preset (panel layout, widgets, defaults, .zshrc) seeded via /etc/skel"
 arch=('any')
 url="https://mazelinux.berkkucukk.com.tr"
