@@ -89,3 +89,9 @@ maze-plasma-config/
   packages if you prefer to track them upstream.
 - The `autostart/maze-apply-wallpaper.desktop` entry references the
   `maze-apply-wallpaper` tool from the **maze-tools** package.
+
+## License
+
+Copyright © 2026 Berk Küçük
+
+Released under the GNU General Public License v3.0 — see [LICENSE](LICENSE).

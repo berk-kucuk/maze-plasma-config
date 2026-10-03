@@ -10,20 +10,21 @@
  * valid reconstruction of the Maze top panel + bottom dock.
  */
 
-// Every screen gets a desktop with the Maze active-blur wallpaper. a2n.blur is
-// bundled per-user in ~/.local/share/plasma/wallpapers (shipped in /etc/skel),
-// so it always resolves; if it were ever missing Plasma simply shows no
+// Every screen gets a desktop with Maze Wallpaper (com.mazelinux.wallpaper,
+// from the maze-wallpaper package, which maze-branding pulls in): the Maze
+// wallpaper with active blur, plus live wallpapers and media mode from the
+// Maze Wallpaper app. If the plugin were ever missing Plasma simply shows no
 // wallpaper (it never aborts the layout the way a missing applet would).
 for (var i = 0; i < screenCount; ++i) {
     var desktop = new Activity;
     desktop.name = "Maze";
-    desktop.wallpaperPlugin = "a2n.blur";
-    desktop.currentConfigGroup = ["Wallpaper", "a2n.blur", "General"];
-    desktop.writeConfig("Image", "file:///usr/share/wallpapers/Maze/");
+    desktop.wallpaperPlugin = "com.mazelinux.wallpaper";
+    desktop.currentConfigGroup = ["Wallpaper", "com.mazelinux.wallpaper", "General"];
+    desktop.writeConfig("Kind", "image");
+    desktop.writeConfig("Source", "/usr/share/wallpapers/Maze/contents/images/3344x1882.png");
     desktop.writeConfig("ActiveBlur", true);
-    desktop.writeConfig("BlurRadius", 50);
-    desktop.writeConfig("AnimationDuration", 250);
-    desktop.writeConfig("SlidePaths", "/usr/share/wallpapers/");
+    desktop.writeConfig("BlurRadius", 32);
+    desktop.writeConfig("ActiveDim", 10);
 }
 
 // --- Top panel: launcher, clock and a system tray -------------------------

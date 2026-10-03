@@ -12,7 +12,14 @@ immutability=1
 lastScreen=0
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=a2n.blur
+wallpaperplugin=com.mazelinux.wallpaper
+
+[Containments][1][Wallpaper][com.mazelinux.wallpaper][General]
+ActiveBlur=true
+ActiveDim=10
+BlurRadius=32
+Kind=image
+Source=/usr/share/wallpapers/Maze/contents/images/3344x1882.png
 
 [Containments][1][Wallpaper][a2n.blur][General]
 ActiveBlur=true
