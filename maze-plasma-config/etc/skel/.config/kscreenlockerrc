@@ -2,5 +2,5 @@
 WallpaperPlugin=org.kde.image
 
 [Greeter][Wallpaper][org.kde.image][General]
-Image=file:///usr/share/wallpapers/Maze/contents/images/3344x1882.png
-PreviewImage=file:///usr/share/wallpapers/Maze/contents/images/3344x1882.png
+Image=file:///usr/share/wallpapers/Maze-Dust/contents/images/2560x1440.png
+PreviewImage=file:///usr/share/wallpapers/Maze-Dust/contents/images/2560x1440.png

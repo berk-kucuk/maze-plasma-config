@@ -21,7 +21,7 @@ for (var i = 0; i < screenCount; ++i) {
     desktop.wallpaperPlugin = "com.mazelinux.wallpaper";
     desktop.currentConfigGroup = ["Wallpaper", "com.mazelinux.wallpaper", "General"];
     desktop.writeConfig("Kind", "image");
-    desktop.writeConfig("Source", "/usr/share/wallpapers/Maze/contents/images/3344x1882.png");
+    desktop.writeConfig("Source", "/usr/share/wallpapers/Maze-Dust/contents/images/2560x1440.png");
     desktop.writeConfig("ActiveBlur", true);
     desktop.writeConfig("BlurRadius", 32);
     desktop.writeConfig("ActiveDim", 10);
