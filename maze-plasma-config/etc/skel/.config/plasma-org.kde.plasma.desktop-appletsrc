@@ -267,7 +267,7 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][3][Applets][4][Configuration][General]
-favorites=maze-guard.desktop,haze.desktop,hazedrop.desktop,maze-ai.desktop,entropy-shield.desktop,qlam.desktop,linux-chan-ai.desktop,sentinai.desktop,maze-control-center.desktop,maze-hardware.desktop,maze-panic.desktop,org.kde.konsole.desktop,firefox.desktop,proton.vpn.app.gtk.desktop
+favorites=maze-welcome.desktop,maze-control-center.desktop,maze-store.desktop,maze-guard.desktop,maze-cloak.desktop,entropy-shield.desktop,qlam.desktop,maze-ai.desktop,maze-connect.desktop,haze.desktop,hazedrop.desktop,maze-hardware.desktop,maze-kernel.desktop,maze-wallpaper.desktop,maze-donate.desktop,org.kde.konsole.desktop,firefox.desktop,proton.vpn.app.gtk.desktop
 favoritesPortedToKAstats=false
 icon=/usr/share/pixmaps/maze-simple-logo.png
 systemFavorites=suspend\\,hibernate\\,reboot\\,shutdown

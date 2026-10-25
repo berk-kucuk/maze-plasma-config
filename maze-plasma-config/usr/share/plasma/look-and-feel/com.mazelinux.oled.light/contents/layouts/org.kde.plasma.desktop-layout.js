@@ -35,6 +35,30 @@ top.height = Math.round(gridUnit * 1.6);
 var kickoff = top.addWidget("org.kde.plasma.kickoff");
 kickoff.currentConfigGroup = ["General"];
 kickoff.writeConfig("icon", "/usr/share/pixmaps/maze-simple-logo.png");
+// Same favorites as the skel layout: every default Maze app with a window
+// (optional apps are left out), then the terminal, browser and VPN.
+// Maze Panic Mode is deliberately left out — it is one keystroke away on
+// Ctrl+Alt+P and should not sit where a stray click launches it.
+kickoff.writeConfig("favorites", [
+    "maze-welcome.desktop",
+    "maze-control-center.desktop",
+    "maze-store.desktop",
+    "maze-guard.desktop",
+    "maze-cloak.desktop",
+    "entropy-shield.desktop",
+    "qlam.desktop",
+    "maze-ai.desktop",
+    "maze-connect.desktop",
+    "haze.desktop",
+    "hazedrop.desktop",
+    "maze-hardware.desktop",
+    "maze-kernel.desktop",
+    "maze-wallpaper.desktop",
+    "maze-donate.desktop",
+    "org.kde.konsole.desktop",
+    "firefox.desktop",
+    "proton.vpn.app.gtk.desktop",
+]);
 
 top.addWidget("org.kde.plasma.panelspacer");
 var clock = top.addWidget("org.kde.plasma.digitalclock");

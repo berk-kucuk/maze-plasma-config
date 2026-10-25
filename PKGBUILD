@@ -18,7 +18,7 @@
 # the pin to the live user's own panel config in setup-live-user.sh instead.
 
 pkgname=maze-plasma-config
-pkgver=1.2.3
+pkgver=1.2.4
 pkgrel=1
 pkgdesc="Maze Linux KDE Plasma desktop preset (panel layout, widgets, defaults, .zshrc) seeded via /etc/skel"
 arch=('any')
